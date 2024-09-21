@@ -6,7 +6,7 @@ import plotly.express as px
 
 
 def load_data():
-    file_path = '/Users/keithrobinson/Desktop/TripleTen/Projects//project4/vehicles_us.csv'
+    file_path = '/Users/keithrobinson/Desktop/TripleTen/Projects/project4/vehicles_us.csv'
     print(f"Loading data from: {file_path}")
     
     df = pd.read_csv('/Users/keithrobinson/Desktop/TripleTen/Projects/project4/vehicles_us.csv')
