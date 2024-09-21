@@ -6,11 +6,19 @@ import plotly.express as px
 
 
 def load_data():
-    file_path = '/Users/keithrobinson/Desktop/TripleTen/Projects/project4/vehicles_us.csv'
-    print(f"Loading data from: {file_path}")
-    
-    df = pd.read_csv('/Users/keithrobinson/Desktop/TripleTen/Projects/project4/vehicles_us.csv')
+    # Determine the base path of the current script
+    base_path = os.path.dirname(__file__)
 
+    # Construct the relative file path
+    file_path = os.path.join(base_path, 'vehicles_us.csv')
+    
+    # Print current working directory and list files for debugging
+    print(f"Current working directory: {os.getcwd()}")
+    print(f"Listing files in the directory: {os.listdir(os.getcwd())}")
+    print(f"Loading data from: {file_path}")
+
+    # Load the CSV data
+    df = pd.read_csv(file_path)
     return df
 
 data = load_data()
