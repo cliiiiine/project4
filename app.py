@@ -19,6 +19,13 @@ def load_data():
 
     # Load the CSV data
     df = pd.read_csv(file_path)
+
+    # Handle missing values
+    df['model_year'] = df['model_year'].fillna(df['model_year'].median())
+    df['cylinders'] = df.groupby('model')['cylinders'].apply(lambda x: x.fillna(x.median()))
+    df['odometer'] = df.groupby('model')['odometer'].apply(lambda x: x.fillna(x.median()))
+    df['paint_color'] = df['paint_color'].fillna('Unknown')
+    
     return df
 
 data = load_data()
